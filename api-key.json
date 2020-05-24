@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "acquired-jet-270401",
+  "private_key_id": "97c02d1ff710a6b58308acc14bab4880f64da1f6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIAYnrTngbAZlm\nO3izcxdVBEmLeFSPNiVAlZBgIkPZxVq6cxqkVNMYOCfGFRjPrd9vTTZPLA5U2gmv\nzseVWV2mNHklGVOgHCuxacAMW6ZGkvIKTmqd9OhCLtetpZP5IhQZp6admnNOY8u+\n/7WmpHTQEP82kMSLVSGBLB8pfr24cfPGBag+EukhKcdrDQ6+B4OoNRS0phWGWSPC\nBAthD5gS09xwsDBkCxUAZu259G9yLy10dB5MH1Wy2GzpsslRbG8y2wIrtoWArQkf\nwmGC53zqkR0x5n1xXQ7uQljiIsENNOWS6ubS7g6Nten4yqRjo94fYSn6t5FuaBw6\n6HmDlOyHAgMBAAECggEAC9h3fC3CFEtkc/cav3oWDC18U5vVWkQJMcmJ6v+siBXV\nuUw+7DOv6vPMe0FdnlM8dAGdMVQ5JxJg135GONS5pLHf6PAWkVmJxvCt9K1q7Cwg\n1LZvPxq1tNHEaV7wpCU+DoTs69GteZuUgiPv9MYxuu7+xpMNaPkqSlW8JL+Cag2O\n0LIkk2nl80p598PkFxPpuNxnUB6jN5WheBFkIxy8a1IMtHFA79L+iTU8uoZyu9Rq\n1HbqvBvoI87CVoj1a0VbPZGMeDwcejq5Jis9/BBWAuv/FXeMyKwmQobOYnjQJgd0\nsqqvyS/91jGKeNmHPkNiQYUwF5gHBdVfHpKVtBoFBQKBgQD0/h68PzqOkwvFI5uH\nxXLFqymeMmRyU+algiX5arsbQWYxc7zAs7dipMbwIo1JXwUEks88cDSIhklvLZPX\n3CYgEefMR57xfpAcOkYTSfseNb86+aCnWig6HQOlrriTLix28ofVvWV9A7egJZCd\nm+FCdqkewABiyyKzay47M1Rz7QKBgQDQ/fyrMStufmRdWG+XVGN837hRC6Q/0qjF\nCbIQveozaF2sJI8YbTkxRdeYCcFbSARKqFjKk1vMCegNYSahPjfMab56VRlHac/u\nprzU0GXzcsQ7GFegll6u+y/uo9HzHeFOd0W4atwIFDUvHvmEeBzMeKRqSIZmzoLI\nWWz+Qo07wwKBgQD0jD0N12eSLcHP9O0pJ7SbD3Gpkc+mN43BpBpXz2wZlrx1nHvL\nNxlVA/n4deTmWkzd9dWbFL27kZ/3tF0hWYVM+dKRnORRVu5u3tRYKL7btva93bO5\nmUsSRyf+2FsxvyNvUES63CVUFsPSveyPBqxh9aR3J1y7QN3QjqpFOcWROQKBgFxO\nchTiqL4q0QVxlAgQ28hBv9T8AVW3I5ezipRebVy7UfRASXuOcl5S7MBYPrCkhFC9\nPkpq/3aFQZr3N+qr4lVEtz6s63dhQteziV+tk/oMzKMVQ07IW5WJmEgczxRENElF\n4ONtPzXKRxtC4Q4jRwUAnA3dbo9l0tnOtZcvqdWlAoGBALU/pclRzCxMY+qe/MZP\nSKSRbWmiqIcD/80LMA9eiESvbrVZ5SDaTvdqiXMonCIw1gantoA74KOI0r+qwr9u\neC7wpIiHezrmhro8o9zHHvefiONh4O/8IuDtqVpU7SESo1g30pYUiR43YSb6/ih+\nDOX4d2nTZlnqy+gMQSgori77\n-----END PRIVATE KEY-----\n",
+  "client_email": "teacher-toolbox@acquired-jet-270401.iam.gserviceaccount.com",
+  "client_id": "114167310088665671860",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/teacher-toolbox%40acquired-jet-270401.iam.gserviceaccount.com"
+}
