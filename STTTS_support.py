@@ -99,21 +99,24 @@ def transcribe_mp3(file):
             new_file.export(tempdir+"\\{:04d}-{:04d}.wav".format(x//1000,y//1000), format="wav")
             print("Created file "+tempdir+"\\{:04d}-{:04d}.wav".format(x//1000,y//1000))
                   
-    def transcribe(file):
-        import speech_recognition as sr
-        r = sr.Recognizer()
-        with sr.AudioFile(tempdir+"\\"+file) as source:
-            print("{} loaded".format(file) +"\n")
-            audio = r.record(source)
-            print("{} recorded".format(file) +"\n")
-        with open("C:\\Users\\Bec\\Documents\\Programming\\PAGE\\STTTS\\api-key.json") as f:
-            API_KEY=f.read()
-            print("API credentials loaded")
-            #TODO Currently reaches here and stalls. No error, but never produces text
-            text = r.recognize_google_cloud(audio, credentials_json=API_KEY, language=lingua.get())
-            print(text)
-        print("{}transcribed".format(file) +"\n")
-        return text
+    def create_transcriber(lang):
+        def transcribe(file):
+            import speech_recognition as sr
+            r = sr.Recognizer()
+            with sr.AudioFile(tempdir+"\\"+file) as source:
+                print("{} loaded".format(file) +"\n")
+                audio = r.record(source)
+                print("{} recorded".format(file) +"\n")
+            with open("C:\\Users\\Bec\\Documents\\Programming\\PAGE\\STTTS\\api-key.json") as f:
+                API_KEY=f.read()
+                print("API credentials loaded")
+                #TODO Currently reaches here and stalls. No error, but never produces text
+                text = r.recognize_google_cloud(audio, credentials_json=API_KEY, language=lang)
+                print(text)
+            print("{}transcribed".format(file) +"\n")
+            return text
+        return transcribe
+    
     
     def transcribe_multiples():
         from multiprocessing.dummy import Pool
@@ -121,9 +124,14 @@ def transcribe_mp3(file):
         import os
         pool = Pool(len(os.listdir(tempdir+"\\"))) # Number of concurrent threads
         files=os.listdir(tempdir+"\\")
-        all_text = pool.map(transcribe, files)
-        pool.join()
+        filtered=[]
+        for x in files:
+            if os.stat(tempdir+'\\'+x).st_size>50:
+                filtered.append(x)
+        transcriber=create_transcriber(lingua.get())
+        all_text = pool.map(transcriber, filtered)
         pool.close()
+        pool.join()
         transcript = ""
         for text in all_text:
             transcript+=text
