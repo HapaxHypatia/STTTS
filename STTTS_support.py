@@ -107,7 +107,7 @@ def transcribe_mp3(file):
                 print("{} loaded".format(file) +"\n")
                 audio = r.record(source)
                 print("{} recorded".format(file) +"\n")
-            with open("C:\\Users\\Bec\\Documents\\Programming\\PAGE\\STTTS\\api-key.json") as f:
+            with open("api-key.json") as f:
                 API_KEY=f.read()
                 print("API credentials loaded")
                 #TODO Currently reaches here and stalls. No error, but never produces text
