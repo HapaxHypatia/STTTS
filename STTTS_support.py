@@ -34,6 +34,10 @@ def set_Tk_var():
     sourceAudio = StringVar()
     global transcript
     transcript = StringVar()
+    global save_folder 
+    save_folder = StringVar()
+    global source_file 
+    source_file = StringVar()
 
 
 def STT_clearBTN_leftClick(p1):
@@ -50,13 +54,31 @@ def TTS_clearBTN_leftClick(p1):
     sourceText.set("")   
     lingua.set("en")
 
+def Browse(p1):
+    print('QTI_support.Browse')
+    from tkinter import filedialog
+    file = filedialog.askopenfile(mode='rb',
+                              filetypes =[('Python Files', '*.xlsx')],
+                                          title='Choose a file')
+    source_file.set(file.name)
+    print(source_file.get())
+    sys.stdout.flush()
+
+def Browse_folder(p1):
+    from tkinter import filedialog
+    print('QTI_support.Browse_folder')
+    folder=filedialog.askdirectory()
+    save_folder.set(folder)
+    sys.stdout.flush()
+
+ 
 def get_TTS(STR,path):
     import site
     site.addsitedir('C:\\Users\\rebecca.haskmann\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\site-packages')
     from gtts import gTTS
     tts = gTTS(STR, lang=lingua.get())
-    tts.save(path+".mp3")
-    message.set(message.get()+STR + " converted to audio and saved to "+path+".mp3"+"\n")
+    tts.save(path+"\\"+sourceText+".mp3")
+    message.set(message.get()+STR + " converted to audio and saved to "+path+"\\"+sourceText+".mp3"+"\n")
     
 def transcribe_mp3(file):
     
