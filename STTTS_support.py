@@ -39,9 +39,9 @@ def set_Tk_var():
     
     #STT
     global source_file 
-    source_file = StringVar()
+    source_file = ""
     global transcript
-    transcript = StringVar()
+    transcript = ""
 
 
 
@@ -64,10 +64,11 @@ def Browse(p1):
     print('QTI_support.Browse')
     from tkinter import filedialog
     file = filedialog.askopenfile(mode='rb',
-                              filetypes =[('Python Files', '*.xlsx')],
+                              filetypes =[('mp3Files', '*.mp3')],
                                           title='Choose a file')
-    source_file.set(file.name)
-    print(source_file.get())
+    global source_file
+    source_file = file.name
+    print(source_file)
     sys.stdout.flush()
 
 def Browse_folder(p1):
@@ -91,11 +92,11 @@ def transcribe_mp3(file):
     
     def convert_audio(file):
         '''
-        takes filename as string (without file extension)
+        takes filename as string
         saves ouput file
         returns name of output file as string
         '''
-        infile=file+".mp3"
+        infile=file
         outfile=tempdir+"tempaudio.wav"
         
         import subprocess
@@ -185,7 +186,8 @@ def STT_Submit_leftClick(p1):
     sys.stdout.flush()
     source=source_file
     text=transcribe_mp3(source)
-    transcript.set(text)
+    global transcript
+    transcript = text
     output=source+"Transcript.txt"
     outfile=open(output, "w")
     outfile.write(text)
