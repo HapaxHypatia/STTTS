@@ -21,37 +21,43 @@ try:
 except ImportError:
     import tkinter.ttk as ttk
     py3 = True
+    
 def set_Tk_var():
-    global path
-    path = StringVar()
-    global sourceText
-    sourceText = StringVar()
+    #General
     global lingua
     lingua = StringVar()
     global message
     message = StringVar()
-    global sourceAudio
-    sourceAudio = StringVar()
-    global transcript
-    transcript = StringVar()
+    
+    #TTS
+    global path
+    path = ""
+    global sourceText
+    sourceText = ""
     global save_folder 
-    save_folder = StringVar()
+    save_folder = ""
+    
+    #STT
     global source_file 
     source_file = StringVar()
+    global transcript
+    transcript = StringVar()
+
 
 
 def STT_clearBTN_leftClick(p1):
     print('STTTS_support.STT_clearBTN_leftClick')
     sys.stdout.flush()
-    sourceAudio.set("")
+    source_file = ""
     lingua.set("en")
 
 
 def TTS_clearBTN_leftClick(p1):
     print('STTTS_support.TTS_clearBTN_leftClick')
     sys.stdout.flush()
-    path.set("")
-    sourceText.set("")   
+    path=""
+    global sourceText
+    sourceText=""   
     lingua.set("en")
 
 def Browse(p1):
@@ -68,7 +74,8 @@ def Browse_folder(p1):
     from tkinter import filedialog
     print('QTI_support.Browse_folder')
     folder=filedialog.askdirectory()
-    save_folder.set(folder)
+    global save_folder
+    save_folder = folder
     sys.stdout.flush()
 
  
@@ -176,8 +183,7 @@ def Exit_LeftClick(p1):
 def STT_Submit_leftClick(p1):
     print('STTTS_support.STT_Submit_leftClick')
     sys.stdout.flush()
-    sourceAudio.set(w.SourceAudio.get())
-    source=w.SourceAudio.get()
+    source=source_file
     text=transcribe_mp3(source)
     transcript.set(text)
     output=source+"Transcript.txt"
@@ -189,9 +195,10 @@ def STT_Submit_leftClick(p1):
 def TTS_Submit_leftClick(p1):
     print('STTTS_support.TTS_Submit_leftClick')
     sys.stdout.flush()
-    path.set(w.TTS_OutputPath.get())
-    sourceText.set(w.TextEntry.get())
-    get_TTS(sourceText.get(), path.get())
+    path=save_folder
+    global sourceText
+    sourceText = w.TextEntry.get()
+    get_TTS(sourceText, path)
 
 def init(top, gui, *args, **kwargs):
     global w, top_level, root
