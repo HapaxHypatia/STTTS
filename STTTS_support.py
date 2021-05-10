@@ -81,8 +81,6 @@ def Browse_folder(p1):
 
  
 def get_TTS(STR,path):
-    import site
-    site.addsitedir('C:\\Users\\rebecca.haskmann\\AppData\\Local\\Programs\\Python\\Python37\\Lib\\site-packages')
     from gtts import gTTS
     tts = gTTS(STR, lang=lingua.get())
     tts.save(path+"\\"+sourceText+".mp3")
